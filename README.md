@@ -4,7 +4,7 @@ This React application allows users to input their home address, view it on a ma
 
 ## Live Demo
 
-Check out the live demo: [Address NFT Generator](https://digital-domi-darshil.vercel.com)
+Check out the live demo: [Address NFT Generator](https://domi-task-darshil25.vercel.app/).
 
 ## Features
 
