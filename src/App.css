@@ -1,0 +1,273 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  width: 100%;
+  height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  height: 100vh;
+}
+
+.app-header {
+  text-align: center;
+  margin: 30px;
+}
+
+.app-header h1 {
+  color: #c1c1ba;
+  font-size: 2.5em;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.app-main {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.address-input {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  position: relative;
+  margin-bottom: 20px;
+  width: 96%;
+}
+
+.search_icon,
+.cross_icon {
+  position: absolute;
+  fill: #e1e1ee;
+  width: 18px;
+  height: 18px;
+}
+.search_icon {
+  left: 16px;
+}
+.cross_icon {
+  cursor: pointer;
+  right: 16px;
+}
+
+.address-input input {
+  width: 100%;
+  padding: 12px 32px;
+  font-size: 16px;
+  background-color: #1d1f28;
+  border: 2px solid #8d90a2;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  color: #e1e1ee;
+}
+
+.address-input input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+.suggestions {
+  width: 95%;
+  position: absolute;
+  top: 100%;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #282a33;
+  border: 1px solid #8d90a2;
+  border-radius: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+  padding: 12px 16px;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease-out;
+}
+.suggestions::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(
+    --Main-Core-SurfaceDefault
+  );
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: #d9d6d6;
+  border-radius: 2px;
+  border: 1px solid #e2e3e6;
+}
+
+.suggestions::-webkit-scrollbar-thumb:hover {
+  background-color: var(--White-color); 
+}
+
+.suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: #23252f;
+  transition: border-color 0.2s ease;
+  color: #e1e1ee;
+}
+
+.suggestions li:hover {
+  border-color: #8D90A2;
+}
+.content-display{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 96%;
+}
+.generated_map{
+  position: relative;
+  width: 99%;
+  height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.switch-button{
+  position: absolute;
+  top: 33%;
+  right: 22%;
+  z-index: 1000;
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid #B6C4FF;
+  background-color: #1D1F28;
+  color: #B6C4FF;
+  cursor: pointer;
+}
+
+.switch-button-nft{
+  padding: 6px 8px;
+  top: 36%;
+  right: 34%;
+}
+
+.switch-button:hover{
+  border-color: #C3C5D8;
+  color: #C3C5D8;
+}
+
+.nft-generator button {
+  background-color: #312C83;
+  color: #e1e1ee;
+  border: none;
+  appearance: none;
+  margin-top: 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nft-generator button:hover {
+  background-color: #D1DAFF;
+  color: #787880;
+}
+
+.nft-display {
+  width: fit-content;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #32343E;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.nft-display h2 {
+  color: #e1e1ee;
+  margin-top: 0;
+}
+
+.nft-display p {
+  word-break: break-all;
+  font-family: monospace;
+  background-color: #f0f2f5;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-spinner {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.no-results {
+  width: 96%;
+  position: absolute;
+  top: 100%;
+  left: 8px;
+  right: 0px;
+  background-color: #282a33;
+  border: 1px solid #8d90a2;
+  border-radius: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  color: #e1e1ee;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
